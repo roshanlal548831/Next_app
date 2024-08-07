@@ -29,7 +29,7 @@ useEffect(()=>{
   return (
     <>
    
-    <div className=" grid grid-cols-4 gap-4 ">
+    <div className="grid grid-cols-4 gap-4  p-5  container">
         {loader?(<><div style={{
             alignItems:"center",
             justifyContent:"center",
@@ -43,23 +43,23 @@ useEffect(()=>{
         <span className="sr-only">Loading...</span>
     </div></h1></div></>):""}
         {data.map((data:any)=>{
-                return(                    <>
+                return(                 
+           <>
              <div className=" w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                  <a href="#">
                      <img  src={data.image} alt="product image" className=" h-3/5 w-full rounded-2xl" />
                  </a>
-                 <div className="px-5 pb-5">
-                     <a href="#">
-                         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Title : <p>{data.title}</p></h5>
-                     </a>
-                     <div className="flex items-center mt-2.5 mb-5">
-                         <div className="flex items-center space-x-1 rtl:space-x-reverse">
-                            
-                         </div>
-                         <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800              ms-3">5.0</span>
-                     </div>
-                    
-                 </div>
+                 <div className="px-5 pb-5 text-center p-2 ">
+                    <h1 className=" text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"> Product Name </h1>
+
+                    <p className="text-white">{data.title}</p>
+                  </div>
+                    <h1 className="text-white m-6">Price ₹ {data.price}</h1>
+                    <hr />
+                    <div className=" text-white">
+                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Descrition</h1>
+                         <p>{data.description}</p>
+                    </div>
              </div>
            </>
                 )
