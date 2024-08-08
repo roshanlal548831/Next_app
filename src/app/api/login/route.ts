@@ -10,7 +10,7 @@ export async function POST(req:any){
        const {email,password} = await  req.json()
         const isEmail = await User.findOne({email})
           if(!isEmail){
-            return NextResponse.json({message :"Email not exist"},{status:400});
+            return NextResponse.json({message :"Invalid email"},{status:400});
           };
 
          const comparePassword = await bcrypt.compare(password,isEmail.password);

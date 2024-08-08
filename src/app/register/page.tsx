@@ -4,7 +4,8 @@ import React, { use, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const page = () => {
     const router = useRouter()
@@ -27,11 +28,21 @@ const page = () => {
     const inputSubmit = async(e:any)=>{
              e.preventDefault()
            try {
-           const data = await axios.post("/api/register",user)
-           console.log(data)
+            if(user.name.length < 3){
+              toast.warning(" name: more then 3 letter")
+            } else if(user.email.length < 1){
+                toast.warning("Email is  required")
+            }else if(user.password.length < 6){
+                toast.warning("Password more then 6 leter")
+            }else{
+                const data = await axios.post("/api/register",user)
+               toast.success(data.data.message)
+            }
            
-           } catch (error) {
-            console.log("user errror",error)
+           
+           } catch (error:any) {
+            toast.error(error.response.data.message)
+           
            }
     }
   return (

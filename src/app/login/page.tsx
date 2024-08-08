@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useSession, signIn, signOut } from "next-auth/react"
+  import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
 
 
 
@@ -35,18 +38,17 @@ const page = () => {
     const inputSubmit = async(e:any)=>{
              e.preventDefault()
            try {
-            console.log(user)
-            setLoader(true)
-           
-             if(user.email.length < 1 || user.password.length < 1){
-                 console.log("fill the input")
-             }else{
+            
+            if(user.email.length < 1 || user.password.length < 1){
+                toast.warning("fill the input")
+            }else{
+                 setLoader(true)
                  const data = await axios.post("/api/login",user);
-                 console.log(data.data)
+                toast.success(data.data.message)
              }
             // router.push("/service")
-           } catch (error) {
-            console.log(error)
+           } catch (error:any) {
+           toast.error(error.response.data.message)
            }
     }
   return (

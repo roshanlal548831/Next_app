@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./container/Navbar";
 import AuthProvider from "./container/AuthProvider/AuthProvider";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -25,6 +26,18 @@ export default async  function RootLayout({
       <body className={inter.className}>
        <AuthProvider >
           <Navbar/>
+          <ToastContainer
+           position="top-right"
+           autoClose={3000}
+           hideProgressBar={false}
+           newestOnTop={false}
+           closeOnClick
+           rtl={false}
+           pauseOnFocusLoss
+           draggable
+           pauseOnHover
+           theme="dark"
+           />
           {children}
        </AuthProvider>
        
