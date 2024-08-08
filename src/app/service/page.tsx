@@ -1,9 +1,16 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useSession, signIn, signOut } from "next-auth/react"
+import { useRouter } from "next/navigation";
 
 
 const page = () => {
+
+  const {data: session} = useSession();
+  const router = useRouter()
+     
+  
     const[data,setData] = useState([]);
      const[loader,setLoader] = useState(true)
     console.log(data)
@@ -31,8 +38,7 @@ useEffect(()=>{
 
   return (
     <>
-   
-    <div className="grid grid-cols-4 gap-4  p-5  container">
+   {session?.user?.email?  <div className="grid grid-cols-4 gap-4  p-5  container">
         {loader?(<><div style={{
             alignItems:"center",
             justifyContent:"center",
@@ -67,7 +73,8 @@ useEffect(()=>{
            </>
                 )
         })}
-    </div>
+    </div> : router.push("/login")}
+  
     </>
   )
 }

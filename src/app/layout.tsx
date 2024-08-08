@@ -23,8 +23,8 @@ export default async  function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-          <Navbar/>
        <AuthProvider >
+          <Navbar/>
           {children}
        </AuthProvider>
        

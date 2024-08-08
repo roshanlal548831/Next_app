@@ -10,17 +10,19 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 const page = () => {
     const router = useRouter()
-
     const {data: session} = useSession();
-      
-     
+
    
+    const[loader,setLoader] = useState(false)
 
     const[user,setUser] = useState({
         email:"",
         password:""
     });
-    const[loader,setLoader] = useState(false)
+
+    if(session?.user?.email){
+        router.push("/service")
+    }
 
     const handleInput = (e:any)=>{        
             const value = e.target.value;
@@ -34,10 +36,15 @@ const page = () => {
              e.preventDefault()
            try {
             console.log(user)
-            // setLoader(true)
-            // const data = await axios.post("/api/login",user);
-            // router.push("/profile")
-            // console.log(data.data)
+            setLoader(true)
+           
+             if(user.email.length < 1 || user.password.length < 1){
+                 console.log("fill the input")
+             }else{
+                 const data = await axios.post("/api/login",user);
+                 console.log(data.data)
+             }
+            // router.push("/service")
            } catch (error) {
             console.log(error)
            }

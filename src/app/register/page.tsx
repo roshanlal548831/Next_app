@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
@@ -27,13 +27,11 @@ const page = () => {
     const inputSubmit = async(e:any)=>{
              e.preventDefault()
            try {
-            console.log(user)
-            setLoader(true)
-            // const data = await axios.post("/api/login",user);
-            // router.push("/profile")
-            // console.log(data.data)
+           const data = await axios.post("/api/register",user)
+           console.log(data)
+           
            } catch (error) {
-            console.log(error)
+            console.log("user errror",error)
            }
     }
   return (
