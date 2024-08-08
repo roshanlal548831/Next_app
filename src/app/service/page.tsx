@@ -12,10 +12,13 @@ const page = () => {
 
 const fetchApi = async()=> {
      try {
-        setLoader(false)
-        const res = await fetch("https://fakestoreapi.com/products")
-        const apiData = await res.json()
+       const res = await fetch("https://fakestoreapi.com/products")
+       const apiData = await res.json()
+       if(apiData){
          setData(apiData)
+         setLoader(false)                   
+
+        }
      } catch (error) {
         
      }
