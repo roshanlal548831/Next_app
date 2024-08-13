@@ -45,9 +45,11 @@ const page = () => {
             }else{
                  setLoader(true)
                  const data = await axios.post("/api/login",user);
-                 router.push("/")
-                localStorage.setItem("token",data.data.token)
                  toast.success(data.data.message)
+                 if(data.data.message){
+                    router.push("/")
+                 }
+
              }
            
            } catch (error:any) {

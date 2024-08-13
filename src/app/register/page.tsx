@@ -35,8 +35,13 @@ const page = () => {
             }else if(user.password.length < 6){
                 toast.warning("Password more then 6 leter")
             }else{
+                setLoader(true)
                 const data = await axios.post("/api/register",user)
+                console.log(data)
                toast.success(data.data.message)
+               if(data.data.message){
+                router.push("/")
+               }
             }
            
            
