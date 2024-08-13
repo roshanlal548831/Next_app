@@ -41,12 +41,15 @@ const page = () => {
             
             if(user.email.length < 1 || user.password.length < 1){
                 toast.warning("fill the input")
+                console.log("helo")
             }else{
                  setLoader(true)
                  const data = await axios.post("/api/login",user);
-                toast.success(data.data.message)
+                 router.push("/")
+                localStorage.setItem("token",data.data.token)
+                 toast.success(data.data.message)
              }
-            // router.push("/service")
+           
            } catch (error:any) {
            toast.error(error.response.data.message)
            }
@@ -74,20 +77,13 @@ const page = () => {
                       <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                       <input type="password" value={user.password} onChange={handleInput} name="password" id="password" placeholder="Enter your password" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                     </div>
+                    <div>
                     <button type="submit"
                         className="inline-flex w-full items-center justify-center rounded-lg border bg-grey p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400">
                         Continue
                     </button>
-                           <button onClick={()=>signIn("google")} className="group rounded-2xl h-12 px-8 w-full border-2 border-gray-300  transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
-                                <div className="relative flex items-center space-x-4 justify-center">
-                                    <img src="https://www.svgrepo.com/show/475656/google-color.svg"
-                                        className="absolute left-0 w-5" alt="google logo"/>
-                                    <span
-                                        className="block w-max font-semibold tracking-wide text-gray-700 dark:text-white text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue
-                                        with Google
-                                    </span>
-                                </div>
-                            </button>  
+                    </div>
+                          
                             <div className='flex items-center h-5'>
 
                               <Link href="/register"  className=' w-full text-blue-600 underline-offset-1'> create new Account</Link>
@@ -99,6 +95,16 @@ const page = () => {
                   </div>
                 
               </form>
+                               <button onClick={()=>signIn("google")} className="group rounded-2xl h-12 px-8 w-full border-2    border-gray-300  transition duration-300 hover:border-blue-400 focus:bg-blue-50 active:bg-blue-100">
+                                <div className="relative flex items-center space-x-4 justify-center">
+                                    <img src="https://www.svgrepo.com/show/475656/google-color.svg"
+                                        className="absolute left-0 w-5" alt="google logo"/>
+                                    <span
+                                        className="block w-max font-semibold tracking-wide text-gray-700 dark:text-white text-sm transition duration-300 group-hover:text-blue-600 sm:text-base">Continue
+                                        with Google
+                                    </span>
+                                </div>
+                            </button>  
           </div>
       </div>
   </div>
