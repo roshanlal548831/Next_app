@@ -4,16 +4,23 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
-```bash
+```ini
+npm i
+npm run dev
+```
 
+### Examples
 
-#### .env
+#### .env.local
 
 ```ini
 # This line is ignored since it's a comment
-SECRET_KEY=hip-hip-env-files
-VERSION=1.0
+GOOGLE_Id =  google_Id
+GOOGLE_SECRET =  google_secret
+MONGODB_URI =  mongodb connection url
 ```
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
