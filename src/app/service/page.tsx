@@ -9,7 +9,7 @@ const page = () => {
 
   const {data: session} = useSession();
   const router = useRouter()
-  const token =  localStorage.getItem("token")   
+     
   
     const[data,setData] = useState([]);
      const[loader,setLoader] = useState(true)
@@ -38,18 +38,12 @@ useEffect(()=>{
 
   return (
     <>
-   
-   {session?.user?.email  ? 
-  <div className=" items-center mx-auto bg-blue-600 ">
-
-   <div className="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4   mx-12 lg:mx-24">
+   {session?.user?.email?  <div className="grid grid-cols-4 gap-4  p-5  container">
         {loader?(<><div style={{
             alignItems:"center",
             justifyContent:"center",
             marginLeft :"750px",
-            marginTop: "70%",
-            backgroundColor: "blue",
-            height: "100vh"
+            marginTop: "70%"
         }}><h1><div role="status">
         <svg aria-hidden="true" className=" w-8 h-8 text-gray-200 animate-spin dark:text-dark-600 fill-red-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
@@ -60,7 +54,7 @@ useEffect(()=>{
         {data.map((data:any)=>{
                 return(                 
            <>
-             <div className=" mt-5 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+             <div className=" w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                  <a href="#">
                      <img  src={data.image} alt="product image" className=" h-3/5 w-full rounded-2xl" />
                  </a>
@@ -69,21 +63,17 @@ useEffect(()=>{
 
                     <p className="text-white">{data.title}</p>
                   </div>
-                      <h1 className="text-white m-6">Price ₹ {data.price}</h1>
+                    <h1 className="text-white m-6">Price ₹ {data.price}</h1>
                     <hr />
                     <div className=" text-white">
                          <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Descrition</h1>
                          <p>{data.description}</p>
                     </div>
              </div>
-             
            </>
                 )
         })}
-    </div>
-    </div>
-
-     : router.push("/login")}
+    </div> : router.push("/login")}
   
     </>
   )
