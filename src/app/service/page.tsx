@@ -15,7 +15,7 @@ function page () {
     console.log(loader)
 
 
-  async function fetchApi () {
+  async function FetchApi () {
      try {
        const res = await fetch("https://fakestoreapi.com/products")
        const apiData = await res.json()
@@ -31,7 +31,7 @@ function page () {
 
 
 useEffect(()=>{
-    fetchApi()
+  FetchApi()
 },[])
 
   return (

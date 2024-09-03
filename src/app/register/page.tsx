@@ -7,7 +7,7 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
-function page () {
+function Page () {
     const router = useRouter()
 
     const[user,setUser] = useState({
@@ -99,4 +99,4 @@ function page () {
   )
 }
 
-export default page
+export default Page
