@@ -13,7 +13,7 @@ function page (){
            <h1 className=" text-2xl font-bold"> login whith Google and go to the product page</h1>
             <div className='mt-5'>
                <p>
-               To log in with Google and access the product page, simply click on the "Sign in with Google" button, which will direct you to a Google login screen. After successfully authenticating your credentials, you'll be redirected to the product page where you can explore and purchase items seamlessly.
+               To log in with Google and access the product page simply click on the Sign in with Google button which will direct you to a Google login screen After successfully authenticating your credentials  youll be redirected to the product page where you can explore and purchase items seamlessly
                </p>
             </div>
             

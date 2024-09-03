@@ -7,6 +7,7 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
+console.log("this is image",)
 
 function Page () {
     const router = useRouter()
