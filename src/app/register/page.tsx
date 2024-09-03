@@ -53,7 +53,7 @@ const page = () => {
   return (
     <>
       <section className="bg-gray-50 dark:bg-blue-900">
-  <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+  <div className="md:w-1/2 flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
       <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <img className="w-10 h-10 rounded-lg mr-2" src="https://www.shutterstock.com/shutterstock/photos/346194287/display_1500/stock-vector-connection-icon-346194287.jpg" alt="logo"/>
          User

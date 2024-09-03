@@ -2,7 +2,6 @@ import bcrypt from "bcrypt";
 import { mognodbConnection } from "@/utils/db";
 import { NextResponse } from "next/server";
 import User from "@/model/userModel";
-import jwt from "jsonwebtoken"
 
 export async function POST(req:any){
     try {
@@ -14,9 +13,17 @@ export async function POST(req:any){
           };
 
          const comparePassword = await bcrypt.compare(password,isEmail.password);
+         const userData = { 
+          name:isEmail.name,
+          email:isEmail.email};
+          
          if(comparePassword){
-            const token = await jwt.sign({email:isEmail.email},process.env.TOKEN_KEY!)
-            return NextResponse.json({message :"Login success",success:true,token},{status:200});
+
+            return NextResponse.json({
+              message :"Login success",
+              success:true,
+              userData
+            },{status:200});
          }else{
             return NextResponse.json({message :"worng password"},{status:400});
 

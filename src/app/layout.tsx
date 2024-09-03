@@ -7,7 +7,6 @@ import { ToastContainer } from "react-toastify";
 
 
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export default async  function RootLayout({
     <html lang="en">
       <body className={inter.className}>
        <AuthProvider >
-          <Navbar/>
+       
           <ToastContainer
            position="top-right"
            autoClose={3000}
@@ -38,6 +37,8 @@ export default async  function RootLayout({
            pauseOnHover
            theme="dark"
            />
+              <Navbar/>
+         
           {children}
        </AuthProvider>
        

@@ -42,7 +42,7 @@ useEffect(()=>{
    {session?.user?.email  ? 
   <div className=" items-center mx-auto bg-blue-600 ">
 
-   <div className="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4   mx-12 lg:mx-24">
+   <div className="grid md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-1  gap-4   mx-12 lg:mx-24">
         {loader?(<><div style={{
             alignItems:"center",
             justifyContent:"center",
