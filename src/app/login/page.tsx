@@ -8,10 +8,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
-
-
-
-const page = () => {
+function page () {
     const router = useRouter();
     const {data: session} = useSession();
 
