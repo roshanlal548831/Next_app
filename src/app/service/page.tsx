@@ -1,23 +1,21 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useSession, signIn, signOut } from "next-auth/react"
+import {useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation";
 
 
-const page = () => {
+function page () {
 
   const {data: session} = useSession();
-  const router = useRouter()
-  const token =  localStorage.getItem("token")   
-  
+  const router = useRouter()  
     const[data,setData] = useState([]);
      const[loader,setLoader] = useState(true)
     console.log(data)
     console.log(loader)
 
 
-const fetchApi = async()=> {
+  async function fetchApi () {
      try {
        const res = await fetch("https://fakestoreapi.com/products")
        const apiData = await res.json()
