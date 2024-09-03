@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import {useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 
 function Page () {
@@ -60,7 +61,7 @@ useEffect(()=>{
            <>
              <div className=" mt-5 w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                  <a href="#">
-                     <img  src={data.image} alt="product image" className=" h-3/5 w-full rounded-2xl" />
+                     <Image  src={data.image} alt="product image" className=" h-3/5 w-full rounded-2xl" />
                  </a>
                  <div className="px-5 pb-5 text-center p-2 ">
                     <h1 className=" text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white"> Product Name </h1>

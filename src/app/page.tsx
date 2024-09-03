@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 
@@ -18,7 +19,7 @@ function page (){
             
          </div>
          <div>
-            <img width={"900"} height={"600"} className=' rounded-2xl' src="https://img.freepik.com/premium-vector/secure-login-sign-up-concept-illustration-user-use-secure-login-password-protection-website-social-media-account-vector-flat-style_7737-2270.jpg?w=900" alt="image" />
+            <Image width={"900"} height={"600"} className=' rounded-2xl' src="https://img.freepik.com/premium-vector/secure-login-sign-up-concept-illustration-user-use-secure-login-password-protection-website-social-media-account-vector-flat-style_7737-2270.jpg?w=900" alt="image" />
          </div>
       </div>
     </div>
