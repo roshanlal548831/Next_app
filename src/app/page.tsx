@@ -7,7 +7,7 @@ const page = () => {
   return (
    <>
     <div>
-        <div className=" grid grid-cols-2 bg-blue-600 h-dvh w-dvw text-center p-6 flex  justify-center text-center align-items-center">
+        <div className=" grid-cols-2 bg-blue-600 h-dvh w-dvw text-center p-6 flex  justify-center align-items-center">
          <div className=' text-center m-20'>
            <h1 className=" text-2xl font-bold"> login whith Google and go to the product page</h1>
             <div className='mt-5'>
