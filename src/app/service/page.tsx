@@ -5,7 +5,7 @@ import {useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from "next/navigation";
 
 
-function page () {
+function Page () {
 
   const {data: session} = useSession();
   const router = useRouter()  
@@ -87,4 +87,4 @@ useEffect(()=>{
   )
 }
 
-export default page
+export default Page
